@@ -16,7 +16,7 @@ void MainGame::run()
 	height = 600;
 	gameState = GameState::PLAY;
 	init();
-	sprite.init(-1, -1, 1, 1);
+	sprite.init(-1, -1, 1, 1,"Images/lock.png");
 	update();
 }
 
@@ -57,6 +57,7 @@ void MainGame::initShaders()
 	program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
 	program.addAtribute("vertexPosition");
 	program.addAtribute("vertexColor");
+	program.addAtribute("vertexUV");
 	program.linkShader();
 }
 
@@ -70,12 +71,15 @@ void MainGame::update()
 
 void MainGame::draw()
 {
-	time += 0.02;
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	time += 0.02;
 	program.use();
+	glActiveTexture(GL_TEXTURE0);
 	GLuint timeLocation = program.getUniformLocation("time");
 	glUniform1f(timeLocation, time);
+	GLuint textureLocation = program.getUniformLocation("myImage");
+	glUniform1i(textureLocation, 0);
 	sprite.draw();
 	program.unuse();
 	SDL_GL_SwapWindow(window);
