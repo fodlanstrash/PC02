@@ -32,6 +32,7 @@ void MainGame::init()
 	}
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	glClearColor(0.0f, 0.4f, 1.0f, 1.0f);
+	initShaders();
 }
 
 void MainGame::processInput()
@@ -49,6 +50,11 @@ void MainGame::processInput()
 			break;
 		}
 	}
+}
+
+void MainGame::initShaders()
+{
+	program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
 }
 
 void MainGame::update()
