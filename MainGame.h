@@ -16,6 +16,7 @@ class MainGame
 private:
 	int witdh;
 	int height;
+	float time = 0;
 	Sprite sprite;
 	GLSProgram program;
 	SDL_Window* window;

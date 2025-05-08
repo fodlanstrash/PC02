@@ -55,6 +55,9 @@ void MainGame::processInput()
 void MainGame::initShaders()
 {
 	program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
+	program.addAtribute("vertexPosition");
+	program.addAtribute("vertexColor");
+	program.linkShader();
 }
 
 void MainGame::update()
@@ -67,8 +70,13 @@ void MainGame::update()
 
 void MainGame::draw()
 {
+	time += 0.02;
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	program.use();
+	GLuint timeLocation = program.getUniformLocation("time");
+	glUniform1f(timeLocation, time);
 	sprite.draw();
+	program.unuse();
 	SDL_GL_SwapWindow(window);
 }
