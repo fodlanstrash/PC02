@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Sprite.h"
 #include "GLSProgram.h"
+#include "InputManager.h"
+#include "Camera2D.h"
 #include <vector>
 using namespace std;
 enum class GameState {
@@ -15,6 +17,8 @@ class MainGame
 private:
 	int witdh;
 	int height;
+	InputManager inputManager;
+	Camera2D camera2D;
 	float time = 0;
 	Sprite sprite;
 	vector<Sprite*> sprites;

@@ -49,8 +49,15 @@ void MainGame::processInput()
 			gameState = GameState::EXIT;
 			break;
 		case SDL_EVENT_MOUSE_MOTION:
+			inputManager.setMouseCoords(event.motion.x, event.motion.y);
 			//cout << "posicion x " << event.motion.x << " posicion y " 
 				//			<< event.motion.y << endl;
+			break;
+		case SDL_EVENT_KEY_DOWN:
+			inputManager.pressKey(event.key.key);
+			break;
+		case SDL_EVENT_KEY_UP:
+			inputManager.releaseKey(event.key.key);
 			break;
 		}
 	}

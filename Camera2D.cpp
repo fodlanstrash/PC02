@@ -12,7 +12,7 @@ void Camera2D::update() {
 		glm::vec3 translate(-position.x,
 			-position.y, 0.0f);
 		cameraMatrix = glm::translate(orthoMatrix, translate);
-		glm::vec3 scale(scale, scale, 0.0f);
+		//glm::vec3 scale(scale, scale, 0.0f);
 		needsUpdateMatrix = false;
 	}
 }
