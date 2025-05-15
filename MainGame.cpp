@@ -16,7 +16,11 @@ void MainGame::run()
 	height = 600;
 	gameState = GameState::PLAY;
 	init();
-	sprite.init(-1, -1, 1, 1,"Images/lock.png");
+	sprites.push_back(new Sprite());
+	sprites.back()->init(-1, -1, 1, 1, "Images/lock.png");
+	sprites.push_back(new Sprite());
+	sprites.back()->init(0, -1, 1, 1, "Images/lock.png");
+	//sprite.init(-1, -1, 1, 1,"Images/lock.png");
 	update();
 }
 
@@ -80,7 +84,10 @@ void MainGame::draw()
 	glUniform1f(timeLocation, time);
 	GLuint textureLocation = program.getUniformLocation("myImage");
 	glUniform1i(textureLocation, 0);
-	sprite.draw();
+	for (size_t i = 0; i < sprites.size(); i++)
+	{
+		sprites[i]->draw();
+	}
 	program.unuse();
 	SDL_GL_SwapWindow(window);
 }

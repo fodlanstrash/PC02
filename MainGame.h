@@ -4,9 +4,8 @@
 #include <iostream>
 #include "Sprite.h"
 #include "GLSProgram.h"
-
+#include <vector>
 using namespace std;
-
 enum class GameState {
 	PLAY,EXIT
 };
@@ -18,6 +17,7 @@ private:
 	int height;
 	float time = 0;
 	Sprite sprite;
+	vector<Sprite*> sprites;
 	GLSProgram program;
 	SDL_Window* window;
 	void init();
