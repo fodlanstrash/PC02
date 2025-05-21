@@ -74,7 +74,7 @@ void MainGame::processInput()
 
 void MainGame::initShaders()
 {
-	//program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
+	program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
 	program.addAtribute("vertexPosition");
 	program.addAtribute("vertexColor");
 	program.addAtribute("vertexUV");
