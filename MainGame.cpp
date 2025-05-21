@@ -16,11 +16,19 @@ void MainGame::run()
 	height = 600;
 	gameState = GameState::PLAY;
 	init();
+
 	sprites.push_back(new Sprite());
-	sprites.back()->init(-1, -1, 1, 1, "Images/lock.png");
+	sprites.back()->init(-1, 0, 1, 1, "Images/imagen1.png");
+
 	sprites.push_back(new Sprite());
-	sprites.back()->init(0, -1, 1, 1, "Images/lock.png");
-	//sprite.init(-1, -1, 1, 1,"Images/lock.png");
+	sprites.back()->init(0, 0, 1, 1, "Images/imagen2.png");
+
+	sprites.push_back(new Sprite());
+	sprites.back()->init(-1, -1, 1, 1, "Images/imagen3.png");
+
+	sprites.push_back(new Sprite());
+	sprites.back()->init(0, -1, 1, 1, "Images/imagen4.png");
+
 	update();
 }
 
